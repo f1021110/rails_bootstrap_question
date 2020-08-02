@@ -1,26 +1,25 @@
-# README
+<!-- ★ストロングパラメーターとは？
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+「Web上から入力されてきた値を制限することで、不正なパラメータを防ぐ仕組み」
 
-Things you may want to cover:
+使い方の例
+def user_params
 
-* Ruby version
+params.require(:user) 
+　　　　　↑POSTで受け取る値のキー設定
+      .permit(:name, :email, :password, :password_confirmation)
+　　　　　↑許可して受け取る値を制限
+end -->
 
-* System dependencies
+★ApplicationControllerとApplicationHelperのコードをDryにする
 
-* Configuration
+ヘルパーはビューで使えるメソッドを定義することができる。
+今回はコントローラーに同じメソッドが書いてあるので、コントローラにあるメソッドをベルパー側で使えるようにしたい。
 
-* Database creation
+今回はコントローラーに以下の一行を追加するだけで終了します。
 
-* Database initialization
+helper_method :current_user, :logged_in?
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 
