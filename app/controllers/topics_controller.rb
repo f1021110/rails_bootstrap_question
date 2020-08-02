@@ -24,13 +24,11 @@ class TopicsController < ApplicationController
   end
 
   def login_check
-    unless user_signed_in?
+    unless users_new_path
       flash[:alert] = "ログインしてください"
       redirect_to root_path
     end
   end
-  
-
-  
+ 
 
 end

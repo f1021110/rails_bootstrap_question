@@ -24,9 +24,13 @@ helper_method :current_user, :logged_in?
 https://h-nagisa.hatenablog.com/entry/2019/06/08/000000_1 -->
 
 
+★非ログイン時に画像投稿ボタンを非表示にする際に、「メソッドが定義できていない」とエラーコード
+エラーコード
+https://gyazo.com/00a225482bb7b5477895357f6d66bcb6
 
-
-
+回答
+erbでメソッドを呼び出す場合は、helperに記載する必要があります。
+同じメソッドをapplication_helperにきさいしましょう。
 
 
 
