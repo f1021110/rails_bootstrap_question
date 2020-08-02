@@ -20,6 +20,13 @@ end -->
 
 helper_method :current_user, :logged_in?
 
+<!-- rails代表的なエラーについての記事
+https://h-nagisa.hatenablog.com/entry/2019/06/08/000000_1 -->
+
+
+
+
+
 
 
 
