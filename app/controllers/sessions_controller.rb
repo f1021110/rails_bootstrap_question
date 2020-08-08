@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
   def new
   end
   
@@ -31,3 +31,4 @@ class SessionController < ApplicationController
     params.require(:user).permit(:name, :email,:password, :password_confirmation)
   end
 end
+

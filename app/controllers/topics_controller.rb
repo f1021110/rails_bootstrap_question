@@ -23,12 +23,12 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:image,:description)
   end
 
-  def login_check
-    unless users_new_path
-      flash[:alert] = "ログインしてください"
-      redirect_to root_path
-    end
-  end
+  # def login_check
+  #   unless users_new_path
+  #     flash[:alert] = "ログインしてください"
+  #     redirect_to root_path
+  #   end
+  # end
  
 
 end
