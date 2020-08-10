@@ -94,3 +94,45 @@ end
 </div>
 ```
 
+Ruby mail 正規表現の書き方
+
+<!-- ```rb
+ mailRegex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+    email = "a@a.com"
+    email.match? mailRegex # =>true 
+```     -->
+
+新規登録が阻まれる
+
+①save失敗の原因を簡単に知る方法としては、create の save を save! に変えると、表示されます。
+
+原因：createメソッドの引数をprivateメソッドに渡せていなかった。
+
+```rb
+class UsersController < ApplicationController
+  # wrap_parameters :user, include: [:name, :password, :password_confirmation]
+
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    # binding.pry
+    @user = User.new(user_params)
+      if @user.save!
+        redirect_to root_path, success: "登録が完了しました"
+      else
+        flash.now[:danger] = "登録に失敗しました"
+        render :new
+      end
+  end
+
+
+  private
+  def user_params
+    params.require(:user).permit(:name, :email,:password,:password_confirmation)
+  end
+
+end
+```
