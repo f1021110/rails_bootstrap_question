@@ -136,3 +136,9 @@ class UsersController < ApplicationController
 
 end
 ```
+
+画像投稿ボタンを押した時に出るNomethodエラーについて
+
+→Userモデルにtopicsのアソシエーションの定義が不足していた。
+
+
