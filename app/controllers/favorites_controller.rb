@@ -17,10 +17,11 @@ class FavoritesController < ApplicationController
         end
     end
 
-    def show
-        @post = Post.find_by(id: params[:id])
-        @user = @post.user
-            # 変数@likes_countを定義
-        @favorite_count = Like.where(post_id: @post.id).count
-    end
+
+    # def show
+    #     @post = Post.find_by(id: params[:id])
+    #     @user = @post.user
+    #         # 変数@likes_countを定義
+    #     @favorite_count = Like.where(post_id: @post.id).count
+    # end
 end
