@@ -141,4 +141,5 @@ end
 
 →Userモデルにtopicsのアソシエーションの定義が不足していた。
 
-
+index.html.erbのSyntaxエラーについて
+do が抜けていた。
