@@ -18,7 +18,9 @@
                     <%= image_tag 'images/icons/heart-black.png', class: 'topic-index-icon-off' %>
                 <% end %>
             <% end %>  
-                          
+          
+          <%= @favorite_count%>
+             
             <%= image_tag 'images/icons/comment.png', class: 'topic-index-icon' %>
             <p class="topic-text">
               <%= topic.description %>
