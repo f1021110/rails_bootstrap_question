@@ -2,8 +2,12 @@ class FavoritesController < ApplicationController
     def index
         @favorite_topics = current_user.favorite_topics
         
-        
-        @favorite_count = favorite.where().count
+        favorite = Favorite.new
+        favorite.user_id = current_user.id
+        favorite.topic_id = params[:topic_id]
+        #ここでidの数を取得
+        # @favorite_count = favorite.topic_id.count
+        @favorite_count = favorite_users.count
     end
 
     def create
