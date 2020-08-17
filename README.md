@@ -136,10 +136,51 @@ class UsersController < ApplicationController
 
 end
 ```
-
+<!-- 
 画像投稿ボタンを押した時に出るNomethodエラーについて
 
 →Userモデルにtopicsのアソシエーションの定義が不足していた。
 
 index.html.erbのSyntaxエラーについて
-do が抜けていた。
+do が抜けていた。 -->
+
+Herokuへの再デプロイ
+一度デプロイしているので、そのやり方と同じになると思います。
+
+まずはGitでバージョンをコミットします。
+
+$ git add .
+
+$ git commit -m 'ログイン認証と一対 多をタスク管理アプリに追加
+Githubにもpushします。
+
+$ git push origin master
+Herokuのpush先の確認
+
+$ git remote -v
+これは、
+
+heroku  https://git.heroku.com/tasklist-s9876.git (fetch)
+heroku  https://git.heroku.com/tasklist-s9876.git (push)
+となっていました。Herokuにpushします。
+
+$ git push heroku master
+しばらく時間がかかりますが、エラーなどなければ今回変更した部分が反映されます。
+
+ただし、このままだと
+
+We’re sorry, but something went wrong.
+
+と出てきます。本番環境でのデータベースのミグレーションが必要です。
+
+$ heroku run rails db:migrate
+データベースが反映されれば
+
+$ heroku open
+Manually visit https://tasklist-s9876.herokuapp.com/ in your
+browser.と表示されるので、ブラウザでURLにアクセスするとデプロイしたアプリにアクセスできます。
+
+レビューしてもらったら間違いや不要なコードを多く指摘されました。自分では確認してちゃんと機能していると思っていましたが、修正しないとだめです。
+
+
+<!-- Puma caught this error: Error loading the 'sqlite3' Active Record adapter. Missing a gem it depends on? sqlite3 is not part of the bundle. Add it to your Gemfile. (LoadError) -->
