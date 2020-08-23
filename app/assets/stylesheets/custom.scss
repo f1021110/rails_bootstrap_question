@@ -137,7 +137,12 @@ h1, h2 {
         width: 35px;
         height: 30px;
         margin-left: 20px;
-        color: #8899a6;
+        // 赤色
+
+        filter: invert(15%) sepia(95%) saturate(6932%) hue-rotate(358deg) brightness(95%) contrast(112%);
+
+
+        // color: #8899a6;
         // color: #ff2581;
       }
 
@@ -145,9 +150,15 @@ h1, h2 {
         width: 35px;
         height: 30px;
         margin-left: 20px;
-        color: #ff2581;
+        // 灰色
+        // filter: invert(50%) sepia(0%) saturate(11%) hue-rotate(143deg) brightness(101%) contrast(93%);
+
+
+        // color: #ff2581;
         // color: #8899a6
       }
+
+
 
     }
   }

@@ -2,12 +2,13 @@ class FavoritesController < ApplicationController
     def index
         @favorite_topics = current_user.favorite_topics
         
-        favorite = Favorite.new
-        favorite.user_id = current_user.id
-        favorite.topic_id = params[:topic_id]
+        # favorite = Favorite.new
+        # favorite.user_id = current_user.id
+        # favorite.topic_id = params[:topic_id]
         #ここでidの数を取得
         # @favorite_count = favorite.topic_id.count
-        @favorite_count = topics_users.count
+        # Favorite.where(topic_id: topic.id)
+        # @favorite_count = topics_users.count
     end
 
     def create
@@ -20,6 +21,18 @@ class FavoritesController < ApplicationController
         else
             redirect_to topics_path, danger: '登録に失敗しました'
         end
+    end
+
+    def destroy
+        favorite = Favorite.new
+        favorite.user_id = current_user.id
+        favorite.topic_id = params[:topic_id]
+
+        if favorite.destroy
+            redirect_to topics_path, success: 'お気に入りに登録しました'
+        else
+            redirect_to topics_path, danger: '登録に失敗しました'
+        end  
     end
 
 
