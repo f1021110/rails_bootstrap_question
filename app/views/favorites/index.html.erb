@@ -1,6 +1,6 @@
 <div class="topic-index-wrapper">
   <div class="container">
-    <% @favorite_topics.each do |topic| %>
+    <% @topics.each do |topic| %>
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="topic-index-single">
@@ -15,7 +15,7 @@
                 <% end %>
 
             <% else %>   
-                <%= button_to favorites_path(topic_id: topic.id), method: :delete do %>
+                <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
                     <%= image_tag 'images/icons/heart-black.png', class: 'topic-index-icon' %>
                 <% end %>
             <% end %>  

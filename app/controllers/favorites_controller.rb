@@ -1,6 +1,8 @@
 class FavoritesController < ApplicationController
     def index
-        @favorite_topics = current_user.favorite_topics
+        @topics = Topic.all.includes(:favorite_users)
+
+        @favorite_topics = current_user.favorite_topics.count
         
         # favorite = Favorite.new
         # favorite.user_id = current_user.id
