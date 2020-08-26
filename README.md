@@ -184,3 +184,11 @@ browser.と表示されるので、ブラウザでURLにアクセスするとデ
 
 
 <!-- Puma caught this error: Error loading the 'sqlite3' Active Record adapter. Missing a gem it depends on? sqlite3 is not part of the bundle. Add it to your Gemfile. (LoadError) -->
+
+favorote.destroy ❌
+↓
+favorite.delete ⭕️
+
+<!-- undefined method `each' for nil:NilClass
+このエラーの際は、コントローラの@変数の箇所が原因となっている。 -->
+
